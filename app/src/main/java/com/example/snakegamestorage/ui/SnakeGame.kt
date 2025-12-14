@@ -130,6 +130,16 @@ fun SnakeGame(factory: GameViewModelFactory) {
                             color = Color.White
                         )
                     }
+                    
+                    val errorMessage by viewModel.errorMessage.collectAsState()
+                    errorMessage?.let {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = it,
+                            color = Color.Yellow, // Use Yellow to verify it's drawn
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
                 }
             }
         }
